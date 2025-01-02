@@ -1,0 +1,6 @@
+Model: adversarial_generator_malware1.pth, Accuracy: 0.9913333333333333
+Model: adversarial_generator_malware2.pth, Accuracy: 0.9913333333333333
+Model: adversarial_generator_malware_sup_factor_0.5_epoch_1.pth, Accuracy: 0.29433333333333334
+Model: adversarial_generator_malware_sup_factor_0.5_epoch_2.pth, Accuracy: 0.39366666666666666
+Model: adversarial_generator_malware_sup_factor_0.8_epoch_1.pth, Accuracy: 0.405
+Model: adversarial_generator_malware_sup_factor_0.8_epoch_2.pth, Accuracy: 0.39366666666666666

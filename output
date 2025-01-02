@@ -1,0 +1,84 @@
+            ;-- _mainCRTStartup:
+            ;-- eip:
+/ 32: entry0 ();
+|           0x004012e0      83ec1c         sub esp, 0x1c
+|           0x004012e3      c70424010000.  mov dword [esp], 1
+|           0x004012ea      ff15a0814000   call dword [sym.imp.msvcrt.dll___set_app_type] ; 0x4081a0
+|           0x004012f0      e8bbfeffff     call fcn.004011b0
+|           0x004012f5      8d742600       lea esi, [esi]
+\           0x004012f9      8dbc27000000.  lea edi, [edi]
+/ 32: sym._WinMainCRTStartup ();
+|           0x00401300      83ec1c         sub esp, 0x1c
+|           0x00401303      c70424020000.  mov dword [esp], 2
+|           0x0040130a      ff15a0814000   call dword [sym.imp.msvcrt.dll___set_app_type] ; 0x4081a0
+|           0x00401310      e89bfeffff     call fcn.004011b0
+|           0x00401315      8d742600       lea esi, [esi]
+\           0x00401319      8dbc27000000.  lea edi, [edi]
+            ; CALL XREF from sym.___gcc_register_frame @ 0x401401(x)
+            ; CALL XREF from sym.___do_global_ctors @ 0x401c96(x)
+/ 6: sym._atexit ();
+\           0x00401320      ff25cc814000   jmp dword [sym.imp.msvcrt.dll_atexit] ; 0x4081cc ; "B\x84"
+            0x00401326      8d7600         lea esi, [esi]
+            0x00401329      8dbc27000000.  lea edi, [edi]
+/ 6: sym.__onexit ();
+\           0x00401330      ff25bc814000   jmp dword [sym.imp.msvcrt.dll__onexit] ; 0x4081bc
+            0x00401336      90             nop
+            0x00401337      90             nop
+            0x00401338      90             nop
+            0x00401339      90             nop
+            0x0040133a      90             nop
+            0x0040133b      90             nop
+            0x0040133c      90             nop
+            0x0040133d      90             nop
+            0x0040133e      90             nop
+            0x0040133f      90             nop
+            ; CODE XREF from sym._register_frame_ctor @ 0x403ea4(x)
+/ 222: sym.___gcc_register_frame ();
+|           ; var int32_t var_8h @ ebp-0x8
+|           ; var char *var_4h_3 @ esp+0xc
+|           ; var char *lpProcName @ esp+0x14
+|           ; var int32_t var_4h_2 @ esp+0x18
+|           0x00401340      55             push ebp
+|           0x00401341      89e5           mov ebp, esp
+|           0x00401343      56             push esi
+|           0x00401344      53             push ebx
+|           0x00401345      83ec10         sub esp, 0x10
+|           0x00401348      c70424005040.  mov dword [esp], str.libgcc_s_dw2_1.dll ; section..rdata
+|                                                                      ; [0x405000:4]=0x6762696c ; "libgcc_s_dw2-1.dll" ; LPCSTR lpModuleName
+|           0x0040134f      e8ec2a0000     call sym._GetModuleHandleA_4 ; HMODULE GetModuleHandleA(LPCSTR lpModuleName)
+|           0x00401354      83ec04         sub esp, 4
+|           0x00401357      85c0           test eax, eax
+|       ,=< 0x00401359      0f84b1000000   je 0x401410
+|       |   0x0040135f      c70424005040.  mov dword [esp], str.libgcc_s_dw2_1.dll ; section..rdata
+|       |                                                              ; [0x405000:4]=0x6762696c ; "libgcc_s_dw2-1.dll" ; LPCSTR lpLibFileName
+|       |   0x00401366      89c3           mov ebx, eax
+|       |   0x00401368      e8b32a0000     call sym._LoadLibraryA_4    ; HMODULE LoadLibraryA(LPCSTR lpLibFileName)
+|       |   0x0040136d      83ec04         sub esp, 4
+|       |   0x00401370      a36c704000     mov dword [0x40706c], eax   ; [0x40706c:4]=0
+|       |   0x00401375      c74424041350.  mov dword [lpProcName], str.__register_frame_info ; [0x405013:4]=0x65725f5f ; "__register_frame_info" ; LPCSTR lpProcName
+|       |   0x0040137d      891c24         mov dword [esp], ebx        ; HMODULE hModule
+|       |   0x00401380      e8b32a0000     call sym._GetProcAddress_8  ; FARPROC GetProcAddress(HMODULE hModule, LPCSTR lpProcName)
+|       |   0x00401385      83ec08         sub esp, 8
+|       |   0x00401388      89c6           mov esi, eax
+|       |   0x0040138a      c74424042950.  mov dword [var_4h_3], str.__deregister_frame_info ; [0x405029:4]=0x65645f5f ; "__deregister_frame_info" ; LPCSTR lpProcName
+|       |   0x00401392      891c24         mov dword [esp], ebx        ; HMODULE hModule
+|       |   0x00401395      e89e2a0000     call sym._GetProcAddress_8  ; FARPROC GetProcAddress(HMODULE hModule, LPCSTR lpProcName)
+|       |   0x0040139a      83ec08         sub esp, 8
+|       |   0x0040139d      a300404000     mov dword [section..data], eax ; [0x404000:4]=0
+|       |   ; CODE XREF from sym.___gcc_register_frame @ 0x40141f(x)
+|       |   0x004013a2      85f6           test esi, esi
+|      ,==< 0x004013a4      7411           je 0x4013b7
+|      ||   0x004013a6      c74424040870.  mov dword [var_4h_2], 0x407008 ; [0x407008:4]=0
+|      ||   0x004013ae      c70424b86040.  mov dword [esp], 0x4060b8   ; [0x4060b8:4]=20
+|      ||   0x004013b5      ffd6           call esi
+|      ||   ; CODE XREF from sym.___gcc_register_frame @ 0x4013a4(x)
+|      `--> 0x004013b7      a118404000     mov eax, dword [0x404018]   ; [0x404018:4]=0
+|       |   0x004013bc      85c0           test eax, eax
+|      ,==< 0x004013be      743a           je 0x4013fa
+|      ||   0x004013c0      c70424415040.  mov dword [esp], str.libgcj_16.dll ; [0x405041:4]=0x6762696c ; "libgcj-16.dll" ; LPCSTR lpModuleName
+|      ||   0x004013c7      e8742a0000     call sym._GetModuleHandleA_4 ; HMODULE GetModuleHandleA(LPCSTR lpModuleName)
+|      ||   0x004013cc      83ec04         sub esp, 4
+|      ||   0x004013cf      85c0           test eax, eax
+|      ||   0x004013d1      ba00000000     mov edx, 0
+|     ,===< 0x004013d6      7415           je 0x4013ed
+|     |||   0x004013d8      c74424044f50.  mov dword [lpProcName], str._Jv_RegisterClasses ; [0x40504f:4]=0x5f764a5f ; "_Jv_RegisterClasses" ; LPCSTR lpProcName
