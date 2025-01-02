@@ -6,7 +6,7 @@ url = "https://www.virustotal.com/api/v3/files"
 files = { "file": ("lex.exe", open("mylex.exe", "rb")) }
 headers = {
     "accept": "application/json",
-    "x-apikey": "1db433eff16e541be6c8fccdaa9e85ae731a2a60ff60d5268bff87ca85102a61"
+    "x-apikey": "YOUR API KEY"
 }
 
 response = requests.post(url, files=files, headers=headers)
